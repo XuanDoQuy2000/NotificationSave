@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="core_white">#FFFFFF</color>
+    <color name="core_black">#000000</color>
+    <color name="core_red_pink">#FF3366</color>
+
+    <color name="core_neutral_100">#F7FAFC</color>
+    <color name="core_neutral_200">#EDF2F7</color>
+    <color name="core_neutral_300">#E2E8F0</color>
+    <color name="core_neutral_400">#CBD5E0</color>
+    <color name="core_neutral_500">#A0AEC0</color>
+    <color name="core_neutral_600">#718096</color>
+    <color name="core_neutral_700">#4A5568</color>
+    <color name="core_neutral_800">#2D3748</color>
+    <color name="core_neutral_900">#1A202C</color>
+</resources>

@@ -2,6 +2,7 @@ package com.xuandq.notificationsave.utils
 
 import android.text.format.DateUtils
 import java.text.SimpleDateFormat
+import java.util.*
 
 object DateUtils {
     fun formatTime(timeMillis : Long) : String{
@@ -14,11 +15,11 @@ object DateUtils {
 
     fun formatToTime(timeMillis: Long) : String{
         if (timeMillis == 0L) return ""
-        return SimpleDateFormat("HH:mm").format(timeMillis)
+        return SimpleDateFormat("HH:mm", Locale.getDefault()).format(timeMillis)
     }
 
     fun formatToDate(timeMillis: Long) : String{
         if (timeMillis == 0L) return ""
-        return SimpleDateFormat("MM/dd/yyyy").format(timeMillis)
+        return SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(timeMillis)
     }
 }

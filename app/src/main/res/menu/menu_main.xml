@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragment_list_noti"
+        android:icon="@drawable/noty_ic_notification"
+        android:title="Notification" />
+    <item
+        android:id="@+id/fragment_block_noti"
+        android:title="Chat"
+        android:icon="@drawable/noty_ic_block"/>
+    <item
+        android:id="@+id/fragment_setting"
+        android:title="Setting"
+        android:icon="@drawable/noty_ic_setting"/>
+</menu>

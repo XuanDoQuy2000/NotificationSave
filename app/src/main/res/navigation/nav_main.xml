@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragment_list_noti">
+
+    <fragment
+        android:id="@+id/fragment_list_noti"
+        android:name="com.xuandq.notificationsave.ui.list_noti.ListNotiFragment"
+        android:label="ListNotiFragment"
+        tools:layout="@layout/fragment_list_noti"
+        />
+    <fragment
+        android:id="@+id/fragment_block_noti"
+        android:name="com.xuandq.notificationsave.ui.block_noti.BlockNotiFragment"
+        android:label="BlockNotiFragment"
+        tools:layout="@layout/fragment_block_noti"/>
+    <fragment
+        android:id="@+id/fragment_setting"
+        android:name="com.xuandq.notificationsave.ui.setting.SettingFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting"/>
+</navigation>

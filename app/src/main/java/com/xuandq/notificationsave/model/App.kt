@@ -1,17 +1,22 @@
 package com.xuandq.notificationsave.model
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.LauncherActivityInfo
 import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Parcelable
+import androidx.core.graphics.drawable.toBitmap
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.xuandq.notificationsave.model.enum.IconType
 import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 @Parcelize
 @Entity
@@ -36,4 +41,8 @@ data class App (
         iconPath,
         info.label.toString()
     )
+
+    companion object {
+
+    }
 }

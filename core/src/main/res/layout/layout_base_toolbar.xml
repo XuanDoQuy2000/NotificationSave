@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="subTitle"
+            type="String" />
+
+        <variable
+            name="showBtnBack"
+            type="Boolean" />
+
+        <variable
+            name="showBtnRight"
+            type="Boolean" />
+
+        <variable
+            name="backDrawable"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="rightDrawable"
+            type="android.graphics.drawable.Drawable" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            isVisible="@{showBtnBack ?? true}"
+            android:layout_width="@dimen/core_dip_40"
+            android:layout_height="@dimen/core_dip_40"
+            android:layout_marginStart="@dimen/core_dip_8"
+            android:padding="@dimen/core_dip_8"
+            android:scaleType="fitCenter"
+            android:src="@{backDrawable??@drawable/core_ic_back}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/core_neutral_900"
+            tools:src="@drawable/core_ic_back"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/core_dip_8"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@{title}"
+            android:textColor="@color/core_neutral_900"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toTopOf="@+id/tv_sub_title"
+            app:layout_constraintEnd_toStartOf="@id/btn_right"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/btn_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Title ne" />
+
+        <TextView
+            android:id="@+id/tv_sub_title"
+            isVisible="@{subTitle != null}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@{subTitle}"
+            android:textColor="@color/core_neutral_700"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tv_title"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:text="SubTitle ne" />
+
+        <ImageView
+            android:id="@+id/btn_right"
+            isVisible="@{showBtnRight}"
+            android:layout_width="@dimen/core_dip_40"
+            android:layout_height="@dimen/core_dip_40"
+            android:layout_marginEnd="@dimen/core_dip_8"
+            android:padding="@dimen/core_dip_8"
+            android:scaleType="fitCenter"
+            android:src="@{rightDrawable}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="core_label_notice">Notice</string>
+    <string name="core_label_message">Message</string>
+    <string name="core_label_ok">OK</string>
+    <string name="core_label_cancel">Cancel</string>
+</resources>

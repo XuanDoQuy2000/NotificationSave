@@ -1,28 +1,28 @@
 package com.xuandq.notificationsave.model
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.PrimaryKey
-import kotlinx.android.parcel.IgnoredOnParcel
+import com.bumptech.glide.load.resource.bitmap.VideoDecoder.parcel
 import kotlinx.android.parcel.Parcelize
 
 
-@Entity(primaryKeys = arrayOf("message","postedTime"))
+@Entity(primaryKeys = arrayOf("content", "timeStamp"))
 @Parcelize
-data class Notification (
-    val id : Int,
-    val key : String,
-    val packageName : String,
-    val title : String = "",
-    val actor : String = "",
-    val message : String = "",
-    val category : String? = null,
-    val postedTime : Long = 0,
-    val channelId : String? = null,
-    var iconPath : String = "",
-    var largeImagePath : String = "",
-    var isReaded : Boolean = false
+data class Notification(
+    val id: Int,
+    val key: String,
+    val packageName: String,
+    val title: String,
+    val actor: String,
+    val content: String,
+    val category: String? = null,
+    val timeStamp: Long,
+    val channelId: String? = null,
+    var iconPath: String? = null,
+    var largeImagePath: String? = null,
+    var isReaded: Boolean = false
 ) : Parcelable {
-
+    companion object {
+        const val DEFAULT_CONTENT = ""
+    }
 }

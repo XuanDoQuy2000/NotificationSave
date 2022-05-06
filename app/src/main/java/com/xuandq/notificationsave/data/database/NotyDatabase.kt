@@ -2,6 +2,10 @@ package com.xuandq.notificationsave.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.xuandq.notificationsave.data.database.dao.AppDao
+import com.xuandq.notificationsave.data.database.dao.AppWithNotiDao
+import com.xuandq.notificationsave.data.database.dao.NotificationDao
+import com.xuandq.notificationsave.data.database.dao.TitleDao
 import com.xuandq.notificationsave.model.App
 import com.xuandq.notificationsave.model.Notification
 import com.xuandq.notificationsave.model.Title
@@ -12,6 +16,7 @@ import com.xuandq.notificationsave.model.Title
     Title::class), version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun appDao() : AppDao
-    abstract fun notificationDao() : NotificationDao
-    abstract fun titleDao() :  TitleDao
+    abstract fun notiDao() : NotificationDao
+    abstract fun titleDao() : TitleDao
+    abstract fun appWithNotiDao() : AppWithNotiDao
 }

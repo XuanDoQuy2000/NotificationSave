@@ -4,6 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Notification Save/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/fragment_block_noti.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/fragment_list_noti.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/fragment_setting.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/layout_base_toolbar.xml" value="0.2" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/menu/menu_home.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/menu/menu_main.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/core/src/main/res/layout/core_dialog_two_button.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/core/src/main/res/layout/layout_base_toolbar.xml" value="0.264" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/core/src/main/res/layout/tripi_prepaid_dialog_two_button.xml" value="0.264" />
       </map>
     </option>
   </component>
