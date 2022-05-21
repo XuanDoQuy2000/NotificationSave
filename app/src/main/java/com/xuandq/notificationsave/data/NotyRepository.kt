@@ -1,7 +1,12 @@
 package com.xuandq.notificationsave.data
 
 import android.content.Context
+import android.content.Intent
+import android.content.pm.LauncherActivityInfo
+import android.content.pm.LauncherApps
+import android.content.pm.ResolveInfo
 import android.graphics.Bitmap
+import android.os.Build
 import androidx.core.graphics.drawable.toBitmap
 import com.xuandq.notificationsave.data.database.AppDatabase
 import com.xuandq.notificationsave.data.file.NotyFileStorage
@@ -12,12 +17,10 @@ import com.xuandq.notificationsave.model.AppWithNoti
 import com.xuandq.notificationsave.model.Notification
 import com.xuandq.notificationsave.model.Title
 import com.xuandq.notificationsave.model.enum.IconType
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 class NotyRepository(
-    private val db: AppDatabase,
+    val db: AppDatabase,
     private val pref: NotySharedPreferenceImpl,
     private val fileStorage: NotyFileStorageImpl
 ) : NotyFileStorage {
@@ -73,6 +76,10 @@ class NotyRepository(
         return db.appDao().getApp(packageName)
     }
 
+    suspend fun getAllApp(): List<App>? {
+        return db.appDao().getAllApp()
+    }
+
     suspend fun getAppWithLastNoties(): List<AppWithNoti>? {
         return db.appWithNotiDao().getAppWithLastNoties()
     }
@@ -111,7 +118,7 @@ class NotyRepository(
         icon: Bitmap? = null,
         image: Bitmap? = null
     ) {
-        withContext(Dispatchers.IO){
+        withContext(Dispatchers.IO) {
             val iconPath = async {
                 saveIcon(
                     icon,
@@ -135,4 +142,68 @@ class NotyRepository(
         }
     }
 
+    suspend fun getInstalledApps(context: Context): List<App> = coroutineScope {
+        val listApp = ArrayList<App>()
+        val packageManager = context.packageManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val launcherApps =
+                context.getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
+            val profiles = launcherApps.profiles
+            for (userHandle in profiles) {
+                val apps =
+                    launcherApps.getActivityList(null, userHandle)
+                for (info in apps) {
+                    launch {
+                        listApp.add(convertToApp(context, info))
+                    }
+                }
+            }
+        } else {
+            val intent = Intent(Intent.ACTION_MAIN, null)
+            intent.addCategory(Intent.CATEGORY_LAUNCHER)
+            val activitiesInfo =
+                packageManager.queryIntentActivities(intent, 0)
+            for (info in activitiesInfo) {
+                launch {
+                    listApp.add(convertToApp(context, info))
+                }
+            }
+        }
+        return@coroutineScope listApp
+    }
+
+    private suspend fun convertToApp(context: Context, info: ResolveInfo): App {
+        val pm = context.packageManager
+        val icon = info.loadIcon(pm)
+        val bitmap = icon.toBitmap()
+        val label = info.loadLabel(pm).toString()
+        val packageName = info.activityInfo.packageName
+        val iconPath = withContext(Dispatchers.IO) {
+            saveIcon(bitmap, packageName, IconType.ICON_APP)
+        }
+        return App(packageName, iconPath, label)
+    }
+
+    private suspend fun convertToApp(context: Context, info: LauncherActivityInfo): App {
+        val icon = info.getIcon(0)
+        val bitmap = icon.toBitmap()
+        val label = info.label.toString()
+        val packageName = info.componentName.packageName
+        val iconPath = withContext(Dispatchers.IO) {
+            saveIcon(bitmap, packageName, IconType.ICON_APP)
+        }
+        return App(packageName, iconPath, label)
+    }
+
+    fun isFirstLaunch() = pref.isFirstLaunch()
+
+    fun setFirstLaunch(value : Boolean) {
+        pref.setFirstLaunch(value)
+    }
+
+    suspend fun getListTitleWithNoti(packageName: String) = db.titleWithNotiDao().getListTitleWithNoti(packageName)
+
+    fun fetchListNotiesOfTitle(packageName: String, title: String) = db.notiDao().fetchNotiByTitle(packageName, title)
+
+    fun fetchAllNoties() = db.notiDao().fetchAll()
 }

@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Title(
     val title: String,
-    val actor: String,
+    val actor: String?,
     val packageName: String
 ) : Parcelable {
     companion object {

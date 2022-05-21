@@ -14,6 +14,9 @@ interface NotificationDao : BaseDao<Notification> {
     @Query("SELECT * FROM Notification")
     suspend fun getAll() : List<Notification>?
 
+    @Query("SELECT * FROM Notification")
+    fun fetchAll() : LiveData<List<Notification>>
+
     @Query ("SELECT * FROM Notification WHERE `key` = :key ORDER BY timeStamp DESC LIMIT 1")
     suspend fun getLastNotiOfGroup(key : String) : Notification?
 
@@ -25,4 +28,8 @@ interface NotificationDao : BaseDao<Notification> {
 
     @Query("SELECT * FROM Notification WHERE packageName = :packageName ORDER BY timeStamp DESC LIMIT :limit")
     suspend fun getLastNotiOfApp(packageName : String, limit: Int) : List<Notification>?
+
+    @Query ("SELECT * FROM Notification WHERE title = :title AND packageName = :packageName ORDER BY timeStamp DESC LIMIT 1")
+    suspend fun getLastNotiOfTitle(title: String, packageName: String) : Notification?
+
 }

@@ -3,4 +3,7 @@
     <string name="noty_label_notification">Notification</string>
     <string name="noty_label_need_permission">We need permission</string>
     <string name="noty_label_need_permission_description">Our\'s Service need grant permisson to access notification system.</string>
+    <string name="noty_message_splash_loading">This action can take a few minutes</string>
+    <string name="noty_label_history">History</string>
+    <string name="noty_label_block_noti">Block Notification</string>
 </resources>

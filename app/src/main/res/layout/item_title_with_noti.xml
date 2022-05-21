@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="item"
+            type="com.xuandq.notificationsave.model.Notification" />
+
+        <variable
+            name="appIconPath"
+            type="String" />
+
+        <variable
+            name="numberNoti"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/core_dip_6"
+        android:paddingHorizontal="@dimen/core_dip_12">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/noty_bg_neutral200_corner_8"
+            android:paddingHorizontal="@dimen/core_dip_8"
+            android:paddingVertical="@dimen/core_dip_6"
+            tools:layout_editor_absoluteX="13dp"
+            tools:layout_editor_absoluteY="7dp">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="@dimen/core_dip_48"
+                android:layout_height="@dimen/core_dip_48"
+                iconApp="@{item.iconPath ?? appIconPath}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/core_dip_8"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{item.title}"
+                android:textColor="@color/core_neutral_900"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@+id/tv_description"
+                app:layout_constraintEnd_toStartOf="@id/tv_date"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/img_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Paginated queries with the Paging library android studio 202020" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/core_dip_12"
+                android:text="@{item.dateTimeFormat}"
+                android:textColor="@color/core_neutral_700"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_title"
+                app:layout_constraintTop_toTopOf="@id/tv_title"
+                app:layout_constraintWidth_min="@dimen/core_dip_60"
+                tools:text="22/02/2022" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/core_dip_8"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{item.getDescription()}"
+                android:textColor="@color/core_neutral_700"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintEnd_toStartOf="@id/tv_count"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                tools:text="Hoang Long : abcxyz" />
+
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="@dimen/core_dip_20"
+                android:layout_height="@dimen/core_dip_20"
+                android:textColor="@color/core_white"
+                android:gravity="center"
+                android:text="@{numberNoti}"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_description"
+                android:background="@drawable/noty_bg_rounded_textview"
+                tools:text="99+"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

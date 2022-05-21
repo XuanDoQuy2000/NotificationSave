@@ -1,6 +1,7 @@
 package com.xuandq.notificationsave.model
 
 import android.os.Parcelable
+import androidx.recyclerview.widget.DiffUtil
 import androidx.room.Embedded
 import androidx.room.Relation
 import com.xuandq.notificationsave.utils.DateUtils
@@ -11,10 +12,9 @@ data class AppWithNoti(
     @Embedded val app: App,
     @Relation(
         parentColumn = "packageName",
-        entityColumn = ""
+        entityColumn = "packageName"
     )
     val listLastNoties : List<Notification>? = null,
-    val listTitleWithNoties: List<TitleWithNoti>? = null
 ) : Parcelable{
 //    fun toText() : String{
 //        var res = ""
@@ -29,4 +29,17 @@ data class AppWithNoti(
 //        }
 //        return res
 //    }
+
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<AppWithNoti>(){
+            override fun areItemsTheSame(oldItem: AppWithNoti, newItem: AppWithNoti): Boolean {
+                return oldItem.app.packageName == newItem.app.packageName
+            }
+
+            override fun areContentsTheSame(oldItem: AppWithNoti, newItem: AppWithNoti): Boolean {
+                return oldItem == newItem
+            }
+
+        }
+    }
 }

@@ -11,4 +11,7 @@ interface TitleDao : BaseDao<Title> {
 
     @Query("SELECT * FROM Title")
     suspend fun getAll() : List<Title>?
+
+    @Query("SELECT * FROM Title WHERE packageName = :packageName")
+    suspend fun getTitlesOfApp(packageName: String) : List<Title>?
 }

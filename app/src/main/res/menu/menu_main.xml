@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/fragment_list_noti"
+        android:id="@+id/nav_history"
         android:icon="@drawable/noty_ic_notification"
         android:title="Notification" />
     <item

@@ -3,9 +3,11 @@ package com.xuandq.notificationsave.data.share_pref
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
+import com.xuandq.core.isTrue
 import com.xuandq.notificationsave.shared.Constants
 
-class NotySharedPreferenceImpl(private val context: Context, val gson: Gson) : NotySharedPreference {
+class NotySharedPreferenceImpl(private val context: Context, val gson: Gson) :
+    NotySharedPreference {
     private val pref: SharedPreferences by lazy {
         context.getSharedPreferences(Constants.NOTY_SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
     }
@@ -20,7 +22,7 @@ class NotySharedPreferenceImpl(private val context: Context, val gson: Gson) : N
             else -> {
                 try {
                     gson.fromJson(pref.getString(key, null), anonymousClass)
-                } catch (e: Exception){
+                } catch (e: Exception) {
                     e.printStackTrace()
                     null
                 }
@@ -47,13 +49,19 @@ class NotySharedPreferenceImpl(private val context: Context, val gson: Gson) : N
         editor.apply()
     }
 
+    fun isFirstLaunch() = get(KEY_FIRST_LAUNCH, Boolean::class.java).isTrue()
 
+    fun setFirstLaunch(value : Boolean) {
+        put(KEY_FIRST_LAUNCH, value)
+    }
 
     companion object {
         private const val KEY_TELCO_LISTING = "com.xuandq.noty.pref.telcos"
         private const val KEY_CURRENT_PHONE = "com.xuandq.noty.pref.current_phone"
-        private const val KEY_CURRENT_CUSTOMER_INFORMATION = "com.xuandq.noty.pref.current_customer_information"
-        private const val KEY_RECENT_PROFILE ="com.xuandq.noty.pref.recent_profile"
+        private const val KEY_CURRENT_CUSTOMER_INFORMATION =
+            "com.xuandq.noty.pref.current_customer_information"
+        private const val KEY_RECENT_PROFILE = "com.xuandq.noty.pref.recent_profile"
+        private const val KEY_FIRST_LAUNCH = "com.xuandq.noty.pref.frist_launch"
     }
 
 }

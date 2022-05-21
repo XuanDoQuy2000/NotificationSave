@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="item"
+            type="com.xuandq.notificationsave.model.Notification" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/_chat_right_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/core_dip_16"
+            android:layout_marginTop="@dimen/core_dip_16"
+            android:layout_marginEnd="@dimen/core_dip_16"
+            android:background="@drawable/noty_bg_chat_right"
+            android:maxWidth="@dimen/core_dip_180"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="câu kiểu cái chức năng online offline t ch" />
+
+        <TextView
+            android:id="@+id/_chat_right_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/core_neutral_900"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/_chat_right_content"
+            app:layout_constraintEnd_toStartOf="@id/_chat_right_content"
+            tools:text="15:50" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

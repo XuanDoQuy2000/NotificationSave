@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_history"
+    app:startDestination="@id/listNotiFragment">
+
+    <fragment
+        android:id="@+id/listNotiFragment"
+        android:name="com.xuandq.notificationsave.ui.list_app_noti.ListNotiFragment"
+        android:label="ListNotiFragment" >
+        <action
+            android:id="@+id/action_listNotiFragment_to_listTitleFragment"
+            app:destination="@id/listTitleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listTitleFragment"
+        android:name="com.xuandq.notificationsave.ui.list_title.ListTitleFragment"
+        android:label="ListTitleFragment" >
+        <argument
+            android:name="app"
+            app:argType="com.xuandq.notificationsave.model.App"/>
+        <action
+            android:id="@+id/action_listTitleFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.xuandq.notificationsave.ui.list_notification.NotificationFragment"
+        android:label="NotificationFragment" >
+        <argument
+            android:name="app"
+            app:argType="com.xuandq.notificationsave.model.App"/>
+
+        <argument
+            android:name="title"
+            app:argType="com.xuandq.notificationsave.model.Title"/>
+    </fragment>
+</navigation>

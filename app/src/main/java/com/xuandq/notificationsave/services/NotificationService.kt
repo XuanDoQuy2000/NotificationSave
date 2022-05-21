@@ -44,6 +44,8 @@ class NotificationService : NotificationListenerService(), CoroutineScope {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 cancelNotification(sbn.key)
             }
+        } else {
+
         }
     }
 
@@ -155,7 +157,7 @@ class NotificationService : NotificationListenerService(), CoroutineScope {
         dataManager.insertTitle(
             Title(
                 NotyUtils.getTitle(title) ?: Title.DEFAULT_TITLE,
-                NotyUtils.getDescription(title) ?: Title.DEFAULT_ACTOR,
+                NotyUtils.getActor(title),
                 sbn.packageName
             )
         )
@@ -165,14 +167,18 @@ class NotificationService : NotificationListenerService(), CoroutineScope {
                 sbn.key,
                 sbn.packageName,
                 NotyUtils.getTitle(title) ?: Title.DEFAULT_TITLE,
-                actor ?: NotyUtils.getDescription(title) ?: Title.DEFAULT_ACTOR,
+                actor ?: NotyUtils.getActor(title),
                 content ?: Notification.DEFAULT_CONTENT,
                 sbn.notification.category,
-                timeStamp = time ?: sbn.notification.`when`,
+                timeStamp = time ?: sbn.notification.`when` ?: 0,
                 channelId = channelId
             ),
             sbn.notification.largeIcon
         )
+    }
+
+    override fun onNotificationRemoved(sbn: StatusBarNotification?) {
+        super.onNotificationRemoved(sbn)
     }
 
     override val coroutineContext: CoroutineContext

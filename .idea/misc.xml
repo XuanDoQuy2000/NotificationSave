@@ -4,11 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Notification Save/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/drawable/noty_bg_chat_left.xml" value="0.176" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/drawable/noty_bg_chat_right.xml" value="0.1735" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/drawable/noty_bg_neutral200_corner_16.xml" value="0.1735" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/drawable/noty_bg_rounded_textview.xml" value="0.1735" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/drawable/noty_bg_splash.xml" value="0.1735" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/drawable/noty_bg_white_corner_16.xml" value="0.1735" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/drawable/noty_ic_back_arrow.xml" value="0.1735" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/drawable/noty_ic_more_vertical.xml" value="0.1735" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/drawable/noty_ic_noti.xml" value="0.1735" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/fragment_block_noti.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/fragment_list_noti.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/fragment_list_title.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/fragment_notfication.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/fragment_setting.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/item_app.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/item_app_with_noti.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/item_chat_left.xml" value="0.264" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/item_chat_right.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/item_chat_timestamp.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/item_last_noti.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/item_title_with_noti.xml" value="0.264" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/layout/layout_base_toolbar.xml" value="0.2" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/menu/menu_home.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/NotificationSave/app/src/main/res/menu/menu_main.xml" value="0.25" />

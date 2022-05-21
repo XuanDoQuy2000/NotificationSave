@@ -14,7 +14,7 @@ object NotyUtils {
         return s.substring(0, index).trim()
     }
 
-    fun getDescription(s: String?): String? {
+    fun getActor(s: String?): String? {
         if (s == null) return null
         val index = if (s.indexOf(':') != -1) s.indexOf(':') + 1 else s.length
         return s.substring(index).trim()

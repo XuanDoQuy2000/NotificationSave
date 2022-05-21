@@ -1,7 +1,6 @@
 package com.xuandq.notificationsave.ui
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.fragment.NavHostFragment
@@ -9,7 +8,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.xuandq.core.BaseActivity
 import com.xuandq.core.showAlert
-import com.xuandq.notificationsave.MainActivity
 import com.xuandq.notificationsave.R
 import com.xuandq.notificationsave.databinding.ActivityHomeBinding
 
@@ -22,6 +20,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     }
 
     override fun initView() {
+        setLightStatusBar(true)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         val navController = navHostFragment.navController

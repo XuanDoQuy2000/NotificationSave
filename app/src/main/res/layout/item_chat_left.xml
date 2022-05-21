@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="date"
+            type="String" />
+
+        <variable
+            name="icon"
+            type="String" />
+
+        <variable
+            name="item"
+            type="com.xuandq.notificationsave.model.Notification" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/chat_left_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/core_dip_16"
+        android:paddingVertical="@dimen/core_dip_8">
+
+        <include
+            android:id="@+id/chat_header"
+            isVisible="@{date != null}"
+            layout="@layout/item_chat_timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:date="@{date}"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/chat_left_icon"
+            iconApp="@{icon}"
+            android:layout_width="@dimen/core_dip_36"
+            android:layout_height="@dimen/core_dip_36"
+            android:layout_marginTop="@dimen/core_dip_8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chat_header"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/chat_left_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/core_dip_16"
+            android:text="@{item.title}"
+            android:textColor="@color/core_neutral_900"
+            android:textSize="@dimen/sp_13"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/chat_left_icon"
+            app:layout_constraintTop_toTopOf="@id/chat_left_icon"
+            tools:text="David Conbuar" />
+
+        <TextView
+            android:id="@+id/chat_left_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/core_dip_16"
+            android:background="@drawable/noty_bg_chat_left"
+            android:maxWidth="@dimen/core_dip_180"
+            android:text="@{item.description}"
+            android:textColor="@color/core_neutral_900"
+            android:textSize="@dimen/sp_10"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="false"
+            app:layout_constraintStart_toEndOf="@id/chat_left_icon"
+            app:layout_constraintTop_toBottomOf="@id/chat_left_title"
+            tools:text="câu kiểu cái chức năng online offline t ch" />
+
+        <ImageView
+            android:id="@+id/chat_left_picture"
+            android:layout_width="@dimen/core_dip_180"
+            android:layout_height="@dimen/core_dip_120"
+            android:layout_marginStart="@dimen/core_dip_16"
+            android:maxWidth="@dimen/core_dip_180"
+            android:scaleType="center"
+            android:visibility="gone"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="false"
+            app:layout_constraintStart_toEndOf="@id/chat_left_icon"
+            app:layout_constraintTop_toBottomOf="@id/chat_left_title"
+            tools:text="câu kiểu cái chức năng online offline t ch" />
+
+        <TextView
+            android:id="@+id/chat_left_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{item.timeFormat}"
+            android:textColor="@color/core_neutral_900"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/chat_left_content"
+            app:layout_constraintStart_toEndOf="@id/chat_left_content"
+            tools:text="15:50" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

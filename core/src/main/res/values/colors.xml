@@ -13,4 +13,5 @@
     <color name="core_neutral_700">#4A5568</color>
     <color name="core_neutral_800">#2D3748</color>
     <color name="core_neutral_900">#1A202C</color>
+    <color name="core_neutral_10">#1A718096</color>
 </resources>
