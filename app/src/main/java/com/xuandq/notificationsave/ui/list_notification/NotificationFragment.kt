@@ -1,5 +1,7 @@
 package com.xuandq.notificationsave.ui.list_notification
 
+import android.app.PendingIntent
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xuandq.core.BaseFragment
@@ -8,6 +10,7 @@ import com.xuandq.notificationsave.R
 import com.xuandq.notificationsave.databinding.FragmentNotficationBinding
 import com.xuandq.notificationsave.model.App
 import com.xuandq.notificationsave.model.Title
+import com.xuandq.notificationsave.services.NotificationService
 
 class NotificationFragment : BaseFragment<FragmentNotficationBinding,NotificationViewModel>() {
     override val layoutId: Int
@@ -39,6 +42,13 @@ class NotificationFragment : BaseFragment<FragmentNotficationBinding,Notificatio
     override fun initEvent() {
         binding.imgBack.setOnClickListener {
             findNavController().popBackStack()
+        }
+        notiAdapter.itemClickListener = { noti, pos->
+            try {
+                NotificationService.intentMap[noti.key]?.send()
+            } catch (e : PendingIntent.CanceledException){
+                Toast.makeText(context, "Can't open target application!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

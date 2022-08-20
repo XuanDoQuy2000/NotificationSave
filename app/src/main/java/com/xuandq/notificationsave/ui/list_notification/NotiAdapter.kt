@@ -13,6 +13,8 @@ class NotiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val items : ArrayList<Notification> = ArrayList()
 
+    var itemClickListener : ((Notification, Int) -> Unit)? = null
+
     private var app : App? = null
 
     fun setData(list: List<Notification>?, app: App?) {
@@ -87,9 +89,13 @@ class NotiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             if (adapterPosition == items.size - 1 ||
                 item.timeStamp / DateUtils.DAY_IN_MILLIS
-                != items[position + 1].timeStamp / DateUtils.DAY_IN_MILLIS
+                != items[adapterPosition + 1].timeStamp / DateUtils.DAY_IN_MILLIS
             ) {
                 binding.date = item.getDateFormat()
+            }
+
+            binding.root.setOnClickListener {
+                itemClickListener?.invoke(item, adapterPosition)
             }
         }
     }

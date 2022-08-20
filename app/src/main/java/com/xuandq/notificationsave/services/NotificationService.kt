@@ -44,8 +44,6 @@ class NotificationService : NotificationListenerService(), CoroutineScope {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 cancelNotification(sbn.key)
             }
-        } else {
-
         }
     }
 
@@ -128,7 +126,6 @@ class NotificationService : NotificationListenerService(), CoroutineScope {
                     onSave(sbn, title, content)
                 }
             }
-
         }
     }
 
@@ -175,6 +172,7 @@ class NotificationService : NotificationListenerService(), CoroutineScope {
             ),
             sbn.notification.largeIcon
         )
+        intentMap.put(sbn.key, sbn.notification.contentIntent)
     }
 
     override fun onNotificationRemoved(sbn: StatusBarNotification?) {

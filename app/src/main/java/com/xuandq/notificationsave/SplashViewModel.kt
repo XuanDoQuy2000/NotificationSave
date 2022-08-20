@@ -21,9 +21,9 @@ class SplashViewModel(private val dataManager : NotyRepository) : BaseViewModel(
                 dataManager.setFirstLaunch(true)
             }
         }
-//        if (time < 5000L) {
-//            delay(5000 - time)
-//        }
+        if (time < 5000L) {
+            delay(5000 - time)
+        }
         onComplete.invoke()
     }
 }
